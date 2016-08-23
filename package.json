@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "body-parser": "^1.15.2",
-    "hbs": "^4.0.0"
+    "hbs": "^4.0.0",
+    "webpack": "^1.13.2"
   }
 }
