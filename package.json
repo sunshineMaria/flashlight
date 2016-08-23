@@ -1,0 +1,13 @@
+{
+  "name": "flashlight",
+  "description": "some function module test",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "hbs": "^4.0.0"
+  }
+}
