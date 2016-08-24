@@ -13,6 +13,7 @@ app.set('view engine', 'html');
 
 app.engine('html', hbs.__express);
 
+//设置静态资源
 app.use(express.static('static'));
  
 app.get('/', function(req, res) {
