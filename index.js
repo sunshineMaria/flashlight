@@ -1,34 +1,32 @@
-// app.js文件
+'use strict'
 
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var hbs = require('hbs');
+const robot = require( 'robot-frame' )
 
-app.use(bodyParser.urlencoded({extended: true}));
-// 加载数据模块
-var blogEngine = require('./data');
- 
-app.set('view engine', 'html');
+robot.setRootPath( __dirname )
 
-app.engine('html', hbs.__express);
+if ( DEBUG ) {
+    // 静态资源热更新
+    require( 'babel-polyfill/node_modules/regenerator-runtime/runtime' )
+    let webpack = require( 'webpack' ),
+        webpackMiddleware = require( 'koa-webpack-middleware' ),
+        devMiddleware = webpackMiddleware.devMiddleware,
+        hotMiddleware = webpackMiddleware.hotMiddleware,
+        webpackConf = require( './webpack.config' ),
+        compiler = webpack( webpackConf )
 
-//设置静态资源
-app.use(express.static('static'));
- 
-app.get('/', function(req, res) {
-   res.render('index',{title:"最近文章", entries:blogEngine.getBlogEntries()});
-});
- 
-app.get('/about', function(req, res) {
-   res.render('about', {title:"自我介绍"});
-});
- 
-app.get('/article/:id', function(req, res) {
-   var entry = blogEngine.getBlogEntry(req.params.id);
-   res.render('article',{title:entry.title, blog:entry});
-});
- 
-app.listen(3000);
+    robot.use( devMiddleware( compiler, {
+        noInfo: false,
+        publicPath: webpackConf.output.publicPath,
+        stats: {
+            colors: true,
+            chunks: false
+        }
+    }) )
 
-console.log('server start at http://127.0.0.1:3000')
+    robot.use( hotMiddleware( compiler ) )
+}
+
+robot.run()
+
+
+

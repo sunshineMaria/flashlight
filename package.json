@@ -1,16 +1,30 @@
 {
-  "name": "flashlight",
-  "description": "Module",
-  "version": "0.0.1",
+  "name": "robot-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "pro": "node index.js --env=pro",
+    "build": "./node_modules/.bin/webpack --env=pro"
+  },
   "dependencies": {
-    "express": "4.x",
-    "body-parser": "^1.15.2",
-    "hbs": "^4.0.0"
+    "robot-frame": "^1.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.3.26",
-    "babel-loader": "^5.0.0",
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.13.2",
-    "webpack": "^1.13.2"
-  }
+    "clean-webpack-plugin": "^0.1.10",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "koa-webpack-middleware": "^1.0.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-manifest-plugin": "^1.0.1"
+  },
+  "author": "GM",
+  "license": "ISC"
 }
