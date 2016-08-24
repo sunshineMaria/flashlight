@@ -8,6 +8,6 @@ module.exports = {
         filename: './bundle.[name].js'
     },
     plugins: [
-        new  webpack.optimize.CommonsChunkPlugin('common.js', ['main1', 'main2'])
+        new  webpack.optimize.CommonsChunkPlugin('common.js', ['main1'])
     ]
 };
