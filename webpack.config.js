@@ -2,12 +2,19 @@ var webpack = require('webpack');
 
 module.exports = {
     entry:{
-        main1:'./static/js/index.js'
+        main:'./static/js/index.js'
     },
     output:{
         filename: './bundle.[name].js'
     },
-    plugins: [
-        new  webpack.optimize.CommonsChunkPlugin('common.js', ['main1', 'main2'])
-    ]
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            // exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015', 'react']
+            }
+        }]
+    }
 };
