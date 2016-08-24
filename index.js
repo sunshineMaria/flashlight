@@ -30,3 +30,5 @@ app.get('/article/:id', function(req, res) {
 });
  
 app.listen(3000);
+
+console.log('server start at http://127.0.0.1:3000')
