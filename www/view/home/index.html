@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block pageCss %} 
-    {{ useCss('home') }}
+    {{ useCss('pager') }}
 {% endblock %}
 
 {% block content %}
-   {{ hello }}
+   {% include "./pager.html" %}
 {% endblock %}
 
 {% block pageJs %} 
