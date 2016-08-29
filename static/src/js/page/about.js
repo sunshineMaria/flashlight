@@ -1,4 +1,4 @@
-require('page/home.less')
+require('page/reset.less')
 
 require('component/dialog')
 
